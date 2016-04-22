@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   EOS
   s.homepage     = "https://github.com/psvmc/RxSwift-ObjectMapper"
   s.license      = { :type => "MIT", :file => "License" }
-  s.author             = { "psvmc" => "183518918@qq.com" }
+  s.author      = { "psvmc" => "183518918@qq.com" }
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.watchos.deployment_target = '2.0'

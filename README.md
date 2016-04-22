@@ -70,7 +70,6 @@ import Foundation
 import ObjectMapper
 struct ZJUser: Mappable {
     var userName: String!
-    var userPhone: String!
     var userAlias: String!
     var invitationCode: Int!
     
@@ -81,7 +80,6 @@ struct ZJUser: Mappable {
     // Mappable
     mutating func mapping(map: Map) {
         userName    <- map["userName"]
-        userPhone   <- map["userPhone"]
         userAlias   <- map["userAlias"]
         invitationCode   <- map["invitationCode"]
     }
