@@ -11,7 +11,7 @@
 RxSwift-ObjectMapper is available through CocoaPods. To install it, simply add the following line to your Podfile:
 
 ```
-pod 'RxSwift-ObjectMapper', '~> 1.0'
+pod 'RxSwift-ObjectMapper', '~> 1.1'
 ```
 
 然后运行`pod install`
@@ -121,14 +121,6 @@ _ = string(.get,
 
 so easy
 
-
-### 示例(Demo)
-
-使用方法可以参考下面的示例
-
-Method of use can refer to the following example
-
-[RxAlamofireDemo_Swift](https://github.com/psvmc/RxAlamofireDemo_Swift)
 
 
 ## 作者(Author)
