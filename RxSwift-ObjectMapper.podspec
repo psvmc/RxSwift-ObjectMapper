@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RxSwift-ObjectMapper"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "ObjectMapper bindings for RxSwift"
   s.description  = <<-EOS
   Easy to use ObjectMapper in RxSwift
@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/RxSwift-ObjectMapper/*.swift"
-    ss.dependency "RxSwift", "~> 2.4"
-    ss.dependency "ObjectMapper", "~> 1.2"
+    ss.dependency "RxSwift", "~> 3.0"
+    ss.dependency "ObjectMapper", "~> 2.2"
     ss.framework  = "Foundation"
   end
 end

@@ -29,13 +29,9 @@ if you get the json like this:
 
 ```json
 {
-    "success":"true",
+    "success":true,
     "msg":"获取用户信息成功",
-    "obj":{
-        "userName":"张剑",
-        "userAlias":"剑行者",
-        "invitationCode":100
-    }
+    "obj":[]
 }
 ```
 
@@ -47,11 +43,11 @@ you can create two struct like this:
 import Foundation
 import ObjectMapper
 struct ZJResult<T: Mappable>: Mappable {
-    var success: String!
+    var success: Bool!
     var msg: String!
-    var obj: T?
+    var obj: [T]?
     
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     
@@ -68,20 +64,26 @@ struct ZJResult<T: Mappable>: Mappable {
 ```swift
 import Foundation
 import ObjectMapper
-struct ZJUser: Mappable {
-    var userName: String!
-    var userAlias: String!
-    var invitationCode: Int!
+struct ZJArticle: Mappable {
+    var title: String!
+    var keywords: String!
+    var description: String!
+    var date: String!
+    var path: String!
+    var url: String!
     
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     
     // Mappable
     mutating func mapping(map: Map) {
-        userName    <- map["userName"]
-        userAlias   <- map["userAlias"]
-        invitationCode   <- map["invitationCode"]
+        title    <- map["title"]
+        keywords   <- map["keywords"]
+        description   <- map["description"]
+        date   <- map["date"]
+        path   <- map["path"]
+        url   <- map["url"]
     }
 }
 ```
@@ -99,16 +101,16 @@ pod 'RxAlamofire'
 then we can query data like this:
 
 ```swift
-_ = string(.POST,
-    "http://t.yidaisong.com:90/login!in.do",
+_ = string(.get,
+    "http://www.psvmc.cn/navi_list.json",
     parameters: ["userPhone":"15225178360","userLoginPswd":"123456"])
     .observeOn(MainScheduler.instance)
-    .mapObject(ZJResult<ZJUser>)
+    .mapObject(type: ZJResult<ZJArticle>.self)
     .subscribe(
         onNext: { repos -> Void in
             self.showTextView.text = "用ObjectMapper把结果转为对象\n"
-                                   + "用户名：\(repos.obj!.userName)\n"
-                                   + "昵称：\(repos.obj!.userAlias)";
+                                   + "是否成功：\(repos.success!)\n"
+                                   + "信息：\(repos.msg!)";
         },
         onError: { (error) -> Void in
            self.showTextView.text = "\(error)";    
