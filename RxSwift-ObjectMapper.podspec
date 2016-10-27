@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.requires_arc = 'true'
-  s.source_files = 'Source/RxSwift-ObjectMapper/*.swift'
+  s.source_files = 'RxAlamofireDemo_Swift/Lib/Lib-Swift/RxSwift-ObjectMapper/*.swift'
   s.dependency "RxSwift", "~> 3.0"
   s.dependency "ObjectMapper", "~> 2.2"
   s.framework  = "Foundation"
