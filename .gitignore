@@ -16,4 +16,3 @@ DerivedData
 Pods
 .idea/
 *.xcbkptlist
-Podfile.lock
